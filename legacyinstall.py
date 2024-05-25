@@ -101,7 +101,8 @@ def downloadMods(modpack: Path, resources: ResourceList) -> None:
 				if digest != hash:
 					print('Error: Hash mismatch:', path)
 					exit(1)
-
+				
+				print('File OK')
 				# write to file
 				with file.open('wb') as f:
 					f.write(data)
@@ -144,6 +145,8 @@ def main() -> None:
 	resources = getMods(index)
 	downloadMods(modpack, resources)
 	copyOverrides(modpack)
+
+	print('Done!')
 
 if __name__ == '__main__':
 	main()
